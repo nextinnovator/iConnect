@@ -1,4 +1,4 @@
-<template>
+<template id="body">
   <div id="app">
     <myheader/>
     <sidevar
@@ -39,8 +39,7 @@ export default {
 
 <style>
 body{
-  background-image: url("assets/login.png");
-  /* background-size: cover; */
-  height: 100%;
+  background-image: url("assets/logIn.jpg");
+  background-size: cover;
 }
 </style>
