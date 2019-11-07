@@ -3,10 +3,11 @@
     <form class="col-lg-9 mx-auto text-white" id="formDesign" @submit="onSubmit">
       <br />
       <center>
-        <h1>Register</h1>
+        <h1>Create Account</h1>
+        <p><b>Get started with you free account</b></p>
       </center>
       <div>
-        <label>User name:</label>
+        <label>Full Name:</label>
         <br />
         <input
           type="text"
@@ -14,13 +15,10 @@
           id="fname"
           name="firstName"
           class="col-sm-5"
-          :class="{ 'is-invalid': submitted && $v.mine.fname.$error }" placeholder="firstname"
+          :class="{ 'is-invalid': submitted && $v.mine.fname.$error }" placeholder="fullname"
         />
-        <div
-          v-if="submitted && !$v.mine.fname.required"
-          class="invalid-feedback"
-        >First Name is required</div>
-        <input
+        <div v-if="submitted && !$v.mine.fname.required" class="invalid-feedback" >Full Name is required</div>
+        <!-- <input
           type="text"
           v-model="mine.lname"
           id="lname"
@@ -31,7 +29,7 @@
         <div
           v-if="submitted && !$v.mine.lname.required"
           class="invalid-feedback"
-        >Last Name is required</div>
+        >Last Name is required</div> -->
       </div>
       <br />
       <div>
@@ -103,6 +101,7 @@
   margin-top: 50px;
   background-color: white;
   padding: 10px;
+  border-radius: 7px;  
 }
 #lname {
   margin-left: $margTop;
@@ -113,9 +112,9 @@
   height: 40px;
 }
 #regForm{
-  margin-left:   50%;
+  margin-left: 50%;
 }
-h1,label{
+h1,label,p{
   color: black;
 }
 #btnReg{
