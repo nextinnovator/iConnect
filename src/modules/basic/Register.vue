@@ -1,105 +1,108 @@
 <template>
-  <form class="col-lg-4 mx-auto text-white" id="formDesign" @submit="onSubmit">
-    <br />
-    <center>
-      <h1>Register:</h1>
-    </center>
-    <div>
-      <label>User name:</label>
+  <div id="regForm">
+    <form class="col-lg-9 mx-auto text-white" id="formDesign" @submit="onSubmit">
       <br />
-      <input
-        type="text"
-        v-model="mine.fname"
-        id="fname"
-        name="firstName"
-        class="col-sm-5"
-        :class="{ 'is-invalid': submitted && $v.mine.fname.$error }" placeholder="firstname"
-      />
-      <div
-        v-if="submitted && !$v.mine.fname.required"
-        class="invalid-feedback"
-      >First Name is required</div>
-      <input
-        type="text"
-        v-model="mine.lname"
-        id="lname"
-        name="lastName"
-        class="col-sm-5"
-        :class="{ 'is-invalid': submitted && $v.mine.lname.$error }" placeholder="lastname"
-      />
-      <div
-        v-if="submitted && !$v.mine.lname.required"
-        class="invalid-feedback"
-      >Last Name is required</div>
-    </div>
-    <br />
-    <div>
-      <label>Email address:</label>
-      <br />
-      <input
-        type="email"
-        v-model="mine.email"
-        id="email"
-        name="email"
-        class="form-control"
-        :class="{ 'is-invalid': submitted && $v.mine.email.$error }" placeholder="email"
-      />
-      <div v-if="submitted && $v.mine.email.$error" class="invalid-feedback">
-        <span v-if="!$v.mine.email.required">Email is required</span>
-        <span v-if="!$v.mine.email.email">Email is invalid</span>
+      <center>
+        <h1>Register</h1>
+      </center>
+      <div>
+        <label>User name:</label>
+        <br />
+        <input
+          type="text"
+          v-model="mine.fname"
+          id="fname"
+          name="firstName"
+          class="col-sm-5"
+          :class="{ 'is-invalid': submitted && $v.mine.fname.$error }" placeholder="firstname"
+        />
+        <div
+          v-if="submitted && !$v.mine.fname.required"
+          class="invalid-feedback"
+        >First Name is required</div>
+        <input
+          type="text"
+          v-model="mine.lname"
+          id="lname"
+          name="lastName"
+          class="col-sm-5"
+          :class="{ 'is-invalid': submitted && $v.mine.lname.$error }" placeholder="lastname"
+        />
+        <div
+          v-if="submitted && !$v.mine.lname.required"
+          class="invalid-feedback"
+        >Last Name is required</div>
       </div>
-    </div>
-    <br />
-    <div>
-      <label>Password:</label>
       <br />
-      <input
-        v-model="mine.password" placeholder="password"
-        id="password"
-        name="password"
-        class="form-control"
-        :class="{ 'is-invalid': submitted && $v.mine.password.$error }" :type="passwordVisible ? 'text' : 'password'"
-      />
+      <div>
+        <label>Email address:</label>
+        <br />
+        <input
+          type="email"
+          v-model="mine.email"
+          id="email"
+          name="email"
+          class="form-control"
+          :class="{ 'is-invalid': submitted && $v.mine.email.$error }" placeholder="email"
+        />
+        <div v-if="submitted && $v.mine.email.$error" class="invalid-feedback">
+          <span v-if="!$v.mine.email.required">Email is required</span>
+          <span v-if="!$v.mine.email.email">Email is invalid</span>
+        </div>
+      </div>
+      <br />
+      <div>
+        <label>Password:</label>
+        <br />
+        <input
+          v-model="mine.password" placeholder="password"
+          id="password"
+          name="password"
+          class="form-control"
+          :class="{ 'is-invalid': submitted && $v.mine.password.$error }" :type="passwordVisible ? 'text' : 'password'"
+        />
 
-      <span class="visibility" tabindex='-1' @click='togglePasswordVisibility' :arial-label='passwordVisible ? "Hide password" : "Show password"'>
-			<i class="material-icons">{{ passwordVisible ? "hide" : "show" }}</i>
-		</span>
+        <span class="visibility" tabindex='-1' @click='togglePasswordVisibility' :arial-label='passwordVisible ? "Hide password" : "Show password"'>
+        <i class="material-icons">{{ passwordVisible ? "hide" : "show" }}</i>
+      </span>
 
-      <div v-if="submitted && $v.mine.password.$error" class="invalid-feedback">
-        <span v-if="!$v.mine.password.required">Password is required</span>
-        <span v-if="!$v.mine.password.minLength">Weak Password</span>
+        <div v-if="submitted && $v.mine.password.$error" class="invalid-feedback">
+          <span v-if="!$v.mine.password.required">Password is required</span>
+          <span v-if="!$v.mine.password.minLength">Weak Password</span>
+        </div>
       </div>
-    </div>
-    <br />
-    <div>
-      <label>Confirm Password:</label>
       <br />
-      <input
-        type="password"
-        v-model="mine.conpassword"
-        id="confirmPassword"
-        name="confirmPassword"
-        class="form-control"
-        :class="{ 'is-invalid': submitted && $v.mine.conpassword.$error }" placeholder="confirm password"
-      />
-      <div v-if="submitted && $v.mine.conpassword.$error" class="invalid-feedback">
-        <span v-if="!$v.mine.conpassword.required">Confirm Password is required</span>
-        <span v-else-if="!$v.mine.conpassword.sameAsPassword">Passwords must match</span>
+      <div>
+        <label>Confirm Password:</label>
+        <br />
+        <input
+          type="password"
+          v-model="mine.conpassword"
+          id="confirmPassword"
+          name="confirmPassword"
+          class="form-control"
+          :class="{ 'is-invalid': submitted && $v.mine.conpassword.$error }" placeholder="confirm password"
+        />
+        <div v-if="submitted && $v.mine.conpassword.$error" class="invalid-feedback">
+          <span v-if="!$v.mine.conpassword.required">Confirm Password is required</span>
+          <span v-else-if="!$v.mine.conpassword.sameAsPassword">Passwords must match</span>
+        </div>
       </div>
-    </div>
-    <br />
-    <center>
-      <button type="submit" class="btn btn-success">Register</button>
-    </center>
-    <br />
-  </form>
+      <br />
+      <center>
+        <b-button type="submit" id="btnReg">Register</b-button>
+      </center>
+      <br />
+    </form>
+  </div>
 </template>
 
 <style lang='scss' scoped>
 @import "~assets/color.scss";
 #formDesign {
   margin-top: 50px;
-  background-color: $color;
+  background-color: white;
+  padding: 10px;
 }
 #lname {
   margin-left: $margTop;
@@ -108,6 +111,15 @@
 #fname {
   margin-left: $margTop;
   height: 40px;
+}
+#regForm{
+  margin-left:   50%;
+}
+h1,label{
+  color: black;
+}
+#btnReg{
+  background-color: $motif;
 }
 
 .visibility {

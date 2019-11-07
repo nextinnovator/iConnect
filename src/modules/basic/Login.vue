@@ -3,7 +3,7 @@
     <form class="col-lg-9 mx-auto text-white" id="formDesign" @submit="onSubmit">
       <br />
       <center>
-        <h1>Login:</h1>
+        <h1>Login</h1>
       </center>
       <div>
         <label>Email address:</label>
@@ -18,7 +18,7 @@
       </div>
       <br />
       <center>
-        <button type="submit" class="btn btn-success">Login</button>
+        <b-button type="submit" id="btnLogin">Login</b-button>
       </center>
       <br />
     </form>
@@ -40,6 +40,9 @@ h1{
 }
 label{
   color: black;
+}
+#btnLogin{
+  background-color: $motif;
 }
 </style>
 

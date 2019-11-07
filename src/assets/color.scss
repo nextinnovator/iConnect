@@ -9,6 +9,10 @@ $color: #055882;
 $margTop: 5%;
 $sideWidth: 10%;
 $sideHeight: auto;
+$loginBckGround: url("assets/logIn.jpg");
+$loginBckGroundHeight: 100%;
+$motif:#BB6BD9;
+
 
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 $font-family-sans-serif: "Titillium Web", sans-serif;
@@ -27,7 +31,7 @@ $menu-text-hover: #E0E0E0;
 // Export Styles
 :export {
   background: {
-    color: $background-color
+    color: $background-color;
   };
   menu: {
     icon-color: $menu-icon-color
