@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar  toggleable="lg" type="light" variant="light"  id="Header">
+    <b-navbar  toggleable="lg" type="light" variant="light"  id="Header" fixed="top">
      <b-col md="5">
             <b-card-img :src="require('assets/header.png')" class="rounded-0" id="userIcon"></b-card-img>
           </b-col>

@@ -12,13 +12,13 @@
       <div>
         <label>Email address:</label>
         <br>
-        <input type="email" v-model="mine.email" class="form-control" placeholder="Enter email">
+        <input id="inputField" type="email" v-model="mine.email" class="form-control" placeholder="Enter email">
       </div>
       <br>
       <div>
         <label>Password:</label>
         <br>
-        <input type="password" v-model="mine.password" class="form-control" placeholder="Password">
+        <input id="inputField" type="password" v-model="mine.password" class="form-control" placeholder="Password">
       </div>
       <br>
       <center>
@@ -27,7 +27,7 @@
       <br>
       <br>
       <p>Forgot Password?</p>
-      <p>Don't have account yet? <a href="#">Sing Up</a></p>
+      <p>Don't have account yet? <a href="#">Sign Up</a></p>
       </center>
     </form>
   </div>
@@ -37,6 +37,7 @@
 @import "~assets/color.scss";
 #formDesign {
   margin-top: 90px;
+  margin-bottom: 40px;
   background-color: white;
   padding: 10px;
   border-radius: 7px;
@@ -51,12 +52,13 @@ h1,label,p {
   background-color: $motif;
   width: 30%;
 }
+#inputField{
+  border-color: $motif;
+}
 </style>
 
 <script>
 import AUTH from "services/auth";
-// import jquery from "jquery";
-// import ROUTER from "router";
 export default {
   data() {
     return {

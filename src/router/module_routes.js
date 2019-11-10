@@ -48,7 +48,7 @@ let routes = [
     {
         path: '/',
         name: 'home',
-        component: resolve => require(['modules/basic/Login.vue'], resolve),
+        component: resolve => require(['modules/basic/homePage.vue'], resolve),
         beforeEnter: beforeEnter
     }
 ]

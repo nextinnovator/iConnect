@@ -6,32 +6,23 @@
         <h1>Create Account</h1>
         <p><b>Get started with you free account</b></p>
       </center>
+      <!-- fullname -->
       <div>
-        <label>Full Name:</label>
+        <label>User Name:</label>
         <br />
         <input
           type="text"
           v-model="mine.fname"
           id="fname"
           name="firstName"
-          class="col-sm-5"
+          class="form-control"
           :class="{ 'is-invalid': submitted && $v.mine.fname.$error }" placeholder="fullname"
         />
-        <div v-if="submitted && !$v.mine.fname.required" class="invalid-feedback" >Full Name is required</div>
-        <!-- <input
-          type="text"
-          v-model="mine.lname"
-          id="lname"
-          name="lastName"
-          class="col-sm-5"
-          :class="{ 'is-invalid': submitted && $v.mine.lname.$error }" placeholder="lastname"
-        />
-        <div
-          v-if="submitted && !$v.mine.lname.required"
-          class="invalid-feedback"
-        >Last Name is required</div> -->
+        <div v-if="submitted && !$v.mine.fname.required" class="invalid-feedback" >User Name is required</div>
       </div>
       <br />
+     
+<!-- Email -->
       <div>
         <label>Email address:</label>
         <br />
@@ -49,6 +40,7 @@
         </div>
       </div>
       <br />
+      <!-- Password -->
       <div>
         <label>Password:</label>
         <br />
@@ -70,6 +62,7 @@
         </div>
       </div>
       <br />
+      <!-- Confirmation -->
       <div>
         <label>Confirm Password:</label>
         <br />
@@ -98,18 +91,14 @@
 <style lang='scss' scoped>
 @import "~assets/color.scss";
 #formDesign {
-  margin-top: 50px;
+  margin-top: 90px;
+  margin-bottom: 40px;
   background-color: white;
   padding: 10px;
   border-radius: 7px;  
 }
-#lname {
-  margin-left: $margTop;
-  height: 40px;
-}
-#fname {
-  margin-left: $margTop;
-  height: 40px;
+#fname,#email,#password,#confirmPassword{
+  border-color: $motif;
 }
 #regForm{
   margin-left: 50%;
@@ -119,8 +108,8 @@ h1,label,p{
 }
 #btnReg{
   background-color: $motif;
+  width: 30%;
 }
-
 .visibility {
   all: unset;
   padding: 2px 0.4em 0;
@@ -132,7 +121,6 @@ h1,label,p{
   color: gray;
   border: solid gray;
 }
-
 .material-icons {
   font-size: 1em;
 }
@@ -149,7 +137,8 @@ export default {
       mine: {
         email: "",
         fname: "",
-        lname: "",
+        cNum: "",
+        address: "",
         password: "",
         conpassword: ""
       },
@@ -157,11 +146,11 @@ export default {
       submitted: false
     };
   },
-
   validations: {
     mine: {
       fname: { required },
-      lname: { required },
+      cNum: { required },
+      address: { required },
       email: { required, email },
       password: {
         required,
@@ -177,7 +166,6 @@ export default {
       conpassword: { required, sameAsPassword: sameAs("password") }
     }
   },
-
   methods: {
     togglePasswordVisibility () {
 			this.passwordVisible = !this.passwordVisible
@@ -186,7 +174,6 @@ export default {
     onSubmit(evt) {
       evt.preventDefault();
       this.submitted = true;
-
       // stop here if form is invalid
       this.$v.$touch();
       if (this.$v.$invalid) {
@@ -211,7 +198,6 @@ export default {
       //   AUTH.register(this.mine.email, this.mine.password);
       // }
     }
-
     // register() {
     //   let link = `http://localhost:3000/db/create/${this.mine.fname}/${this.mine.email}/${this.mine.password}`;
     //   jquery
