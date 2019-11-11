@@ -1,15 +1,15 @@
-import AUTH from 'services/auth'
+import AUTH from 'services/auth';
 // import { resolve } from 'dns'
 let beforeEnter = (to, from, next) => {
-    AUTH.currentPath = to.path
+    AUTH.currentPath = to.path;
     if (to.meta.tokenRequired === true) {
         if (sessionStorage.getItem("Pass") != null) {
-            next()
+            next();
         } else {
-            next({ path: '/login' })
+            next({ path: '/login' });
         }
     } else {
-        next()
+        next();
 
         // if (sessionStorage.getItem("Pass") != null) {
         //     if (to.path === '/' || to.path === '/') {
@@ -38,11 +38,11 @@ let beforeEnter = (to, from, next) => {
     }
 }
 
-var devRoutes = []
-let app = require('router/app.js')
-devRoutes = devRoutes.concat(app.default.routes)
+var devRoutes = [];
+let app = require('router/app.js');
+devRoutes = devRoutes.concat(app.default.routes);
 for (let x = 0; x < devRoutes.length; x++) {
-    devRoutes[x]['beforeEnter'] = beforeEnter
+    devRoutes[x]['beforeEnter'] = beforeEnter;
 }
 let routes = [
     {
@@ -51,8 +51,8 @@ let routes = [
         component: resolve => require(['modules/basic/homePage.vue'], resolve),
         beforeEnter: beforeEnter
     }
-]
-routes = routes.concat(devRoutes)
+];
+routes = routes.concat(devRoutes);
 export default {
     routes: routes
-}
+};

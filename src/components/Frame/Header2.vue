@@ -6,8 +6,8 @@
           </b-col>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto"  v-show="$route.name==='register' || $route.name==='login' || $route.path === '/'">
-          <b-button size="sm" class="my-2 my-sm-0" type="submit" v-on:click="redirect('/register')"  id="register">Register</b-button>&nbsp;&nbsp;&nbsp;
-          <b-button size="sm" class="my-2 my-sm-0" type="submit" v-on:click="redirect('/login')" id="login">Login</b-button>
+            <b-nav-item href="#">Home</b-nav-item>
+            <b-nav-item href="#" disabled>About Us</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>

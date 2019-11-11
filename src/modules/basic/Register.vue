@@ -90,6 +90,10 @@
 
 <style lang='scss' scoped>
 @import "~assets/color.scss";
+body{
+  background-image: url("~assets/finalBckGnd.png");
+  background-size: cover;
+}
 #formDesign {
   margin-top: 90px;
   margin-bottom: 40px;

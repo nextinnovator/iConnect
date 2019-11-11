@@ -14,5 +14,8 @@ export default {
 </script>
 
 <style>
-
+/* body{
+  background-image: url("~assets/finalBckGnd.png");
+  background-size: cover;
+} */
 </style>

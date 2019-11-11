@@ -23,11 +23,10 @@
       <br>
       <center>
         <b-button type="submit" id="btnLogin">Login</b-button>
-      
       <br>
       <br>
       <p>Forgot Password?</p>
-      <p>Don't have account yet? <a href="#">Sign Up</a></p>
+      <p>Don't have account yet? <a v-on:click="redirect('/register')">Sign Up</a></p>
       </center>
     </form>
   </div>
@@ -41,9 +40,17 @@
   background-color: white;
   padding: 10px;
   border-radius: 7px;
+  width: 45%;
+  float: right;
+  // margin-right: 20px;
 }
 #loginPage {
-  margin-left: 50%;
+  // margin-left: 50%;
+  background-image: url("~assets/finalBckGnd.png");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 110vh;
+  padding-right: 60px;
 }
 h1,label,p {
   color: black;
@@ -55,6 +62,10 @@ h1,label,p {
 #inputField{
   border-color: $motif;
 }
+// body{
+//   background-image: url("~assets/finalBckGnd.png");
+//   background-size: cover;
+// }
 </style>
 
 <script>
